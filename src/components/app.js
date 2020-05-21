@@ -44,10 +44,6 @@ export default class App extends Component {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
 
-        // If loggedIn and status LOGGED_IN => return data
-        // If loggedIn status NOT_LOGGED_IN => update state
-        // If not loggedIn and status LOGGED_IN => update state
-
         if (loggedIn && loggedInStatus === "LOGGED_IN") {
           return loggedIn;
         } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
@@ -74,7 +70,7 @@ export default class App extends Component {
       <div className="container">
         <Router>
           <div>
-            <NavigationContainer />
+            <NavigationContainer loggedInStatus={this.state.loggedInStatus} />
 
             <h2>{this.state.loggedInStatus}</h2>
 
